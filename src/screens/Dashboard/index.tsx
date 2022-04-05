@@ -1,6 +1,6 @@
 import React from "react";
-import {Text} from 'react-native'
 import { HighLightCard } from "../../components/HighLightCard";
+import { TransactionCard, TransactionCardProps } from "../../components/TransactionCard";
 import {
     Container,
     Header,
@@ -12,10 +12,50 @@ import {
     UserWraper,
     Icon,
     HighLightCards,
+    Transactions,
+    Title,
+    ListTransactions,
 
     } from './styles'
 
+    export interface DataListProps extends TransactionCardProps{
+        id:string
+    }
 export function Dashboard(){
+    const data:DataListProps[] = [{
+        id:'1',
+        type:'positive',
+        title:"desenvolvimento de site",
+        amount:"R$ 390000,000",
+        date:"15/02/2022",
+        category:{
+            name:'vendas',
+            icon:'dollar-sign'
+        },
+    },
+        {
+            id:'2',
+            type:'negative',
+            title:"KFC",
+            amount:"R$ 390000,000",
+            date:"15/02/2022",
+            category:{
+                name:'alimentação',
+                icon:'coffee'
+            },
+        },
+        {
+            id:'3',
+            type:'negative',
+            title:"aluguel",
+            amount:"R$ 390000,000",
+            date:"15/02/2022",
+            category:{
+                name:'casa',
+                icon:'home'
+            },
+        }
+    ]
     return(
         <Container >
             <Header>
@@ -35,6 +75,14 @@ export function Dashboard(){
                 <HighLightCard type="down" title={'Saidas'} amount={"1.50000"} lastTransaction={"ultima transação em 13 de março"} />
                 <HighLightCard type="total" title={'Total'} amount={"1.50000"} lastTransaction={"ultima transação em 13 de março"} />
             </HighLightCards>
+            <Transactions>
+                <Title> Listagem</Title>
+                <ListTransactions
+                    data={data}
+                    keyExtractor={item => item.id}
+                    renderItem={({item})=> <TransactionCard data={item}/>}
+                />
+            </Transactions>
         </Container>
     )
 }
