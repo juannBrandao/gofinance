@@ -11,6 +11,7 @@ import {
 }
 from '@expo-google-fonts/poppins'
 import {Register} from './src/screens/Register'
+import {CategorySelect} from './src/screens/CategorySelect'
 export default function App() {
 
   const[fontsLoaded] = useFonts({
