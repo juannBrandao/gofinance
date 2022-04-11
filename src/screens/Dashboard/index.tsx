@@ -15,6 +15,7 @@ import {
     Transactions,
     Title,
     ListTransactions,
+    LogOutButton,
 
     } from './styles'
 
@@ -67,13 +68,30 @@ export function Dashboard(){
                             <UserName>Juann</UserName>
                         </User>
                     </UserInfo>
-                    <Icon name="power" />
+                    <LogOutButton onPress={()=>{}}>
+                        <Icon name="power" />
+                    </LogOutButton>
                 </UserWraper>
             </Header>
             <HighLightCards >
-                <HighLightCard type="up"  title={'Entradas'} amount={"1.50000"} lastTransaction={"ultima transação em 13 de março"} />
-                <HighLightCard type="down" title={'Saidas'} amount={"1.50000"} lastTransaction={"ultima transação em 13 de março"} />
-                <HighLightCard type="total" title={'Total'} amount={"1.50000"} lastTransaction={"ultima transação em 13 de março"} />
+                <HighLightCard 
+                    type="up"  
+                    title={'Entradas'} 
+                    amount={"1.50000"} 
+                    lastTransaction={"ultima transação em 13 de março"} 
+                />
+                <HighLightCard 
+                    type="down" 
+                    title={'Saidas'} 
+                    amount={"1.50000"} 
+                    lastTransaction={"ultima transação em 13 de março"} 
+                />
+                <HighLightCard 
+                    type="total" 
+                    title={'Total'} 
+                    amount={"1.50000"} 
+                    lastTransaction={"ultima transação em 13 de março"} 
+                />
             </HighLightCards>
             <Transactions>
                 <Title> Listagem</Title>
